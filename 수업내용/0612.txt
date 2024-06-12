@@ -1,0 +1,54 @@
+<프로젝트 설치>
+0. 폴더 구조 - STS, workspace, (clone)
+1. STS - Spring Tool Suite (Eclipse + Spring + Tomcat, .git생성시 .gitignore도 자동생성)
+--- Git 연동시 STS 설치 및 초기 인코딩 설정까지 ---
+2. Thymleaf - View HTML library (build.gradle, application.prperties)
+3. MyBatis (build.gradle, application.prperties)
+-------------------------------------------------------------------------
+
+Request  ->  Response
+                 <HttpMessageConverter 클래스 동작>
+                 @Controller + @ResponseBody : return String -> HTML
+                 @Controller + @ResponseBody : return Map -> JSON
+
+                 <ViewResolver 클래스 동작>
+                 @Controller return String(html 경로 위치) -> HTML
+
+-> @ResponseBody가 아닌 상태로 return String하면
+    ViewResolver에 의해 리턴된 HTML 경로를 찾아 화면이 구성된다.
+
+-------------------------------------------------------
+<View HTML libraryThymeleaf 설치>
+1. build.gradle에 dependency 추가 -> gradle refresh
+3. application.properties에 cache=false 추가
+
+src/main/java -> Java class 저장
+src/main/resources -> Java 이외의 모든것, View(html), 설정파일 등.
+X src/main/webapp -> viewclass -> jsp (예전 방식)
+
+server.port=80 : 포토번호 80
+spring.thymeleaf.cache=false 설정 : html 수정 시 바로 적용
+------------------------------------------------------------
+
+<에러 구분: RequestMapping 주소와 return 주소는 아무 관련없음!!>
+status=404
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource lesson01/ex02.
+-> 서버 연결 쪽 에러. lesson01/ex02이라는 주소매핑이 없다는 뜻
+
+status=500
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [lesson1/ex02], template might not exist or might not be accessible by any of the configured Template Resolvers
+-> 이런 에러가 뜨면 html연결 쪽에서 문제가 생긴 것. [lesson01/ex02]라는 뷰(파일)가 없다는 뜻
+----------------------------------------------------------------------
+
+서버와 DB의 연결 (JDBC같은것)
+-- MyBatis, JPA가 있음
+
+---------------------------------
+실무에서는 Map보다는 '사용자 객체'를 사용
+
+DTO의 여러가지 명칭
+- DTO, VO(Read Only), Model, Domain
+
+Entity : DB에서 꺼내온 가공되지 않은 데이터(객체)
+
+BO : Business Object (Service랑 동일)
