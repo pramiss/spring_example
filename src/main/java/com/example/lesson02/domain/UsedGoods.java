@@ -32,10 +32,10 @@ public class UsedGoods {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDescription() {
+	public String getdescription() {
 		return description;
 	}
-	public void setDescription(String description) {
+	public void setdescription(String description) {
 		this.description = description;
 	}
 	public int getPrice() {

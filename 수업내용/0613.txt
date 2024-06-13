@@ -1,0 +1,31 @@
+<Repository>
+-- DAO, Mapper
+DAO는 class, Mapper는 interface경우 자주 사용
+
+Mybatis - mapper interface와 mapper.xml을 연결함
+
+
+DI : 의존성 주입 (면접)
+-> new로 객체를 생성하지 않고
+Spring의 방식으로 Spring 컨테이너에서 bean (객체)를 가져오는 방식을 말함
+방법1. 필드 주입 -- @Autowired
+방법2. 수정자 주입
+방법3. 생성자 주입
+
+
+<에러 발생 사례>
+1. SQL 쿼리문 문법이 틀렸을 때
+status code=500 (Server 에러)
+에러메시지 : sql 패키지, #이 보이면 xml에서 오류가 일어났을 확률이 높음
+
+2. Spring bean을 만드는 어노테이션 누락 또는 @Autowired 누락
+-> 객체(bean)가 null이 되는 경우가 많음
+status code=500 (Server 에러)
+에러메시지 : NPE ~ because "this.usedGoodsBO" is null
+
+3. mapper 인터페이스와 mapper xml이 연동되지 않은 경우
+status code=500 (Server 에러)
+에러메시지 : ibatis or mybatis 가 나오면 repository <-> xml을 본다
+
+
+--> xml은 myBatis에서 먼저 읽어서 해석하므로 중간에 만들다 말면 서버가 안켜짐
