@@ -1,0 +1,31 @@
+JSON형태로 response body를 내리는 것을 다른 말로 'API'라고 함
+ex) 컴퓨터의 사운드 카드를 조작할 때, 하드웨어에 직접 접근X
+소프트웨어(API)를 통해 조작함. 이것이 API 개념
+
+Domain에서...
+Null이 가능한 속성은 항상 Wrapper class로 선언해야함
+ex) private double point; (X), private Double point; (O)
+-> 그래야 null값을 받아서 default로 설정할 수 있음
+
+실무에서는 쿼리문 쓸때 *를 절대XXX
+필요하면 다 써야함
+-> 이유: *를 쓰면 현재상황을 명확하게 볼 수 없음
+
+<Bad Request>
+status code=400
+--> 요청받은 주소는 있는데 필수 파라미터를 넣지 않은 경우 발생함.
+--> 요청 주소(혹은 파라미터)와 필수 파라미터가 일치하는지 확인
+
+status code=404
+--> 잘못된 요청 주소 (해당 주소가 없음)
+
+status code=405
+--> method 불일치. GET / POST가 잘못됨
+
+status code=400
+--> TooManyResultException
+--> DB에서는 List로 주는데 자바코드는 단건으로 리턴하고 있을때 발생
+
+
+<쿼리 로그에 2번이 찍힘>
+? 쿼리 : Prepared Statment

@@ -8,9 +8,9 @@ Mybatis - mapper interface와 mapper.xml을 연결함
 DI : 의존성 주입 (면접)
 -> new로 객체를 생성하지 않고
 Spring의 방식으로 Spring 컨테이너에서 bean (객체)를 가져오는 방식을 말함
-방법1. 필드 주입 -- @Autowired
+방법1. 필드 주입
 방법2. 수정자 주입
-방법3. 생성자 주입
+방법3. 생성자 주입 (권장)
 
 
 <에러 발생 사례>
