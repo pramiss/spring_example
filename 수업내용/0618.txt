@@ -1,0 +1,14 @@
+<대부분 3개 중 1개의 경로로 이동>
+Request  ->  Response
+                 @Controller + @ResponseBody: return String -> HTML
+                 @Controller + @ResponseBody: return 객체(도메인 or list) -> JSON
+                 @Controller: return String(html 경로) -> HTML
+
+<MVC 패턴 (면접) >
+Controller로 가져온 데이터를 View로 보내야함. 이때 Model을 이용함.
+Controller -> Model -> View
+(산타)           (양말)      (아이)
+: Controller가 데이터를 Model에 담으면, View가 Model에서 가져옴
+: Controller와 View가 직접 만나지 않음
+
+Model: View 화면에서 데이터를 꺼내쓸 수 있는 객체
