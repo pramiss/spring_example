@@ -1,0 +1,2 @@
+React를 사용하면 templates 폴더도 필요없음
+모든 데이터를 @RestController + JSON으로 내려주고, 데이터를 받아서 씀
