@@ -9,4 +9,7 @@ public interface StudentMapper {
 	
 	// input: Student, output: rowCount
 	public int insertStudent(Student student);
+	
+	// input: id, output: Student
+	public Student selectStudentById(int id);
 }

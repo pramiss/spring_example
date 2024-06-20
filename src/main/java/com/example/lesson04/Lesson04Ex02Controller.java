@@ -2,6 +2,7 @@ package com.example.lesson04;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,14 +30,18 @@ public class Lesson04Ex02Controller {
 	// Student 도메인에 해당하는 field가 있으면 자동 할당됨
 	@PostMapping("/add-student")
 	public String addStudent(
-			@ModelAttribute Student student) {
+			@ModelAttribute Student student,
+			Model model) {
 		
 		// DB Insert
 		studentBO.addStudent(student);
 		
 		// DB Select => 위에서 가입된 학생
+		int id = student.getId(); // 가입한 학생 id를 가져옴
+		Student latestStudent = studentBO.getStudentById(id);
 		
 		// Model에 데이터를 담는다.
+		model.addAttribute("student", latestStudent);
 		
 		// 화면 이동 (먼저 검증)
 		return "lesson04/afterAddStudent";

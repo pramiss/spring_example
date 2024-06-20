@@ -1,0 +1,11 @@
+Java major version 쓰기
+8, 11, 17, 21 중에 하나 쓰기 (17, 21버전 중 하나 쓰기)
+
+<방금 insert된 데이터의 id값을 얻는 법>
+useGeneratedKeys="true" keyProperty="id"
+: 객체 도메인 id를 방금 insert된 데이터의 것으로 얻어온다.
+-> 단, mapperInterface에서 객체로 보내주어야함. 값을 따로 따로 보내면 안됨.
+이유: 내가 넘긴 객체(ex. Student)의 필드(id)에 담기는 것이기 때문.
+
+도메인 객체는 Heap 영역에 생기고, Controller/Service/Mapper/XML 객체 변수는 Stack영역에서 
+동일한 객체를 가리키기 때문에 xml에서 바꾼 필드가 Controller에서 꺼내도 동일하게 변해있음
