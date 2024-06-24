@@ -1,0 +1,2 @@
+resources/static - 이미지, css, js등 저장하기
+static은 무시. img혹은 css 파일부터 절대경로(/)로 시작
