@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>    
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입1</h1>
+        <form action="/lesson06/ex01/add-user" method="post">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" class="form-control col-4">
+            </div>
+            <div class="form-group">
+                <label for="yyyymmdd">생년월일</label>
+                <input type="text" id="yyyymmdd" name="yyyymmdd" class="form-control col-4" placeholder="예) 19991201">
+            </div>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="text" id="email" name="email" class="form-control col-4">
+            </div>
+            <div class="form-group">
+                <label for="introduce">자기소개</label>
+                <textarea id="introduce" name="introduce" class="form-control"></textarea>
+            </div>
+            <input type="button" id="joinBtn" value="회원가입" class="btn btn-success">
+        </form>
+    </div>
+    
+    <!-- Javascript -->
+    <script>
+    	$(document).ready(function() {
+    		// 1) jQuery를 통한 form submit
+    		/*
+    		$("form").on('submit', function(e) {
+    			// e.preventDefault(); // event('submit')를 멈춤. submit이 안되므로 화면이동X.
+    			
+    			// validation
+    			let name = $("input[name=name]").val().trim();
+    			if (name.length < 1) {
+    				alert("이름을 입력하세요");
+    				return false; //-- submit 이벤트는 return false해야함. 그냥 return은 안 먹힘.
+    			}
+    			
+    			let yyyymmdd = $("#yyyymmdd").val().trim();
+    			if (yyyymmdd == "") {
+    				alert("생년월일을 입력하세요.");
+    				return false;
+    			}
+    			
+    			let email = $("#email").val().trim();
+    			if (!email) {
+    				alert("이메일 주소를 입력하세요.");
+    				return false;
+    			}
+    			
+    			alert("서브밋"); // 서버전송
+    		}); // -- form submit : submit 동작 전에 실행됨
+    		*/
+    		
+    		// 2) AJAX 통신 이용 by jQuery (순수 JS는 아님)
+    		$("#joinBtn").on('click', function(e) {
+    			// alert("joinBtn click");
+    			
+    			// validation
+    			let name = $("input[name=name]").val().trim();
+    			if (name.length < 1) {
+    				alert("이름을 입력하세요");
+    				return;
+    			}
+    			
+    			let yyyymmdd = $("#yyyymmdd").val().trim();
+    			if (yyyymmdd == "") {
+    				alert("생년월일을 입력하세요.");
+    				return;
+    			}
+    			
+    			let email = $("#email").val().trim();
+    			if (!email) {
+    				alert("이메일 주소를 입력하세요.");
+    				return;
+    			}
+    			
+    			let introduce = $("#introduce").val();
+    			
+    			console.log(name);
+    			console.log(yyyymmdd);
+    			console.log(email);
+    			console.log(introduce);
+    			
+    			// AJAX 통신 => 서버에 요청
+    			// 딕셔너리로 넘긴다. (jQuery 문법임)
+    			$.ajax({ // 시작과 끝이 ajax임
+    				// request
+    				type:"POST"
+    				, url:"/lesson06/ex01/add-user"
+    				, data:{"name":name, "yyyymmdd":yyyymmdd, "email":email, "introduce":introduce}
+    				// Ajax가 알아서 Get(QueryString), Post(RequestBody)으로 보냄
+    				
+   					// Post 요청 후 다시 여기로 돌아옴(callback 함수)
+   					// ex) Post가 새로운 데이터 insert라면
+   					// AJAX -> (url)Controller -> BO -> Mapper -> DB -> Mapper -> BO -> Controller -> AJAX
+    			
+    				// response
+    				// callback 함수
+    				
+    				// request 성공시 여기로 도달
+    				, success:function(data) { // data파라미터: 응답값(String 항상!!, Controller에서 return되는 값을 의미)
+    					// alert(data);
+   						if (data == "성공") {
+   							location.href = "/lesson06/ex01/after-add-user-view";
+   						}
+    				}
+    				, error:function(xhr, status, error) {
+    					alert(xhr);
+    					alert(status);
+    					alert(error);
+    				}
+   					
+    			}); //-- ajax
+    		});
+    	});
+    </script>
+</body>
+</html>
