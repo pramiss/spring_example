@@ -1,0 +1,13 @@
+Q. AJAX를 사용하는 이유?
+모듈간의 결합도가 낮아지는 것 같음
+기존에는 DB에 insert하는 Controller가 주소로 이동하는 역할까지 했음
+그래서 그 Controller를 쓰고나면 항상 그 주소로 이동했음
+근데 AJAX 방식에서 Controller는 DB insert 후 성공 여부만 돌려주고
+ajax에서 어디로 갈지 정함. 그래서 이 부분에서 모듈간 결합도가 약해짐.
+
+jQuery slim 버전에는 ajax가 없어서 원본 jQuery가 필요함
+
+trim 함수를 못쓴다고 나오는 경우 -> String이 undefined일 가능성이 높음
+
+프로젝트할때 공공API, 오픈API 사용해야함
+지금부터 찾아보면서 어떤 사이트 만들지 생각해보기
