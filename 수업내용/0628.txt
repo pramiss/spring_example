@@ -1,0 +1,22 @@
+AJAX 퀴즈2 그림으로 그려보기
+- ajax까지 표현해보기
+
+GET
+
+POST : 추가 - form, ajax
+PUT : 내용수정(전부) - ajax
+PATCH : 내용수정(일부) - ajax
+DELETE : 삭제
+
+Postman 프로그램 - 테스트 프로그램
+-> post등의 요청도 쉽게 확인가능함
+
+
+delete 버튼 만들때
+-> delete 요청이므로 a 태그로 만들 수 없음
+-> delete 버튼 태그에 삭제할 id를 심어줘야함
+    1) value로 값 넣기
+
+
+location.href => 페이지가 다시 올라감. 다른 페이지로 이동할 때 사용하기
+location.reload(true) => 스크롤을 유지한 채 새로고침. 같은 페이지에서 새로고침할때. true 생략가능
