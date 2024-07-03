@@ -21,8 +21,8 @@ import lombok.ToString;
 @ToString // 객체 출력시 필드 값이 보임. toString은 항상 오버라이드 권장.
 @AllArgsConstructor // JPA는 생성자가 필요함.  모든 파라미터가 있는 생성자
 @NoArgsConstructor // 아무 파라미터가 없는 생성자
-@Builder // setter를 대신해서 내용을 담음
-@Getter // getter를 만들어줌
+@Builder(toBuilder = true) // setter를 대신해서 내용을 담음, toBuiler=true는 필드 수정 허용
+@Getter  // getter를 만들어줌
 // JPA 역할
 @Table(name = "new_student") // JPA에게 연결할 table을 알려줌
 @Entity // 이 객체가 Entity임을 알려줌 BO-JPA-DB
