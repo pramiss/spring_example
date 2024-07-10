@@ -1,6 +1,0 @@
-JPA는 Entity로 DB를 다룸
-그래서 사용할때는 모든걸 Entity에 관해 다룬다.
-
-JPA(JPQL) - Like 문법
-ByNameContains("keyword") == ByNameLike("%keyword%")
-ByNameStartingWith("keyword") == ByNameLike("keyword%")
