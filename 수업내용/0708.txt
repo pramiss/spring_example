@@ -52,12 +52,12 @@ API란? - DB에 CRUD가 일어나는 곳
          - Model을 통한 조회는 아님
 ex) 저장, 수정, 삭제 버튼, 로그인/회원가입/중복확인 버튼
 
-
 @RequestMapping
 @GetMapping
 @ReqeustParam
-Swagger 라이브러리 - 자동으로 웹 페이지를 만들어줌
+Swagger 라이브러리 - 어노테이션에 따라 자동으로 웹 페이지를 만들어줌
 
+post-list-view, post-detail-view가 API가 아닌이유?
 
 
 
